@@ -22,9 +22,10 @@ header{
 	margin-right: 5%;
 }
 
-#motivation{
+#promo{
 	font-weight: bold;
 	color: #d5d1cf;
+	margin-left: 10px;
 }
 
 .center_text{
@@ -53,7 +54,22 @@ footer {
 }
 
 #contact_us{
-	width: 30%;
+	width: 20%;
 	font-weight: bold;
 	justify-content: space-between;
+}
+
+#podborka_table{
+	width: 80%;
+	cellpadding: 1px;
+}
+
+#podborka_caption{
+	caption-side: top;
+	text-align: center;
+	font-size: 40px;
+}
+
+.podborka_img{
+	width: 80%;
 }

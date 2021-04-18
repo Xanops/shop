@@ -1,9 +1,14 @@
 {% extends "index.html" %}
 
 {% block content %}
-    <table>
+    <table id="podborka_table" align="center">
+        <caption id="podborka_caption">Products of the day</caption>
         {% for i in range(3) %}
-        <tr><td><img src="../static/img/kraska_piatna_kvadraty_121700_2608x2608.jpg"></td><td><img src="../static/img/kraska_piatna_kvadraty_121700_2608x2608.jpg"></td><td><img src="../static/img/kraska_piatna_kvadraty_121700_2608x2608.jpg"></td></tr>
+            <tr>
+                <td class="podborka_cells"><img src="../static/img/ikonka.jpg" class="podborka_img"></td>
+                <td class="podborka_cells"><img src="../static/img/ikonka.jpg" class="podborka_img"></td>
+                <td class="podborka_cells"><img src="../static/img/ikonka.jpg" class="podborka_img"></td>
+            </tr>
         {% endfor %}
     </table>
 {% endblock %}

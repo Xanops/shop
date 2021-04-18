@@ -33,7 +33,7 @@ def contacts():
     return render_template('contacts.html', title='Контакты')
 
 
-@app.route('/smartphones')
+@app.route('/phones')
 def smartphones():
     return render_template('phones.html', title='Смартфоны')
 
