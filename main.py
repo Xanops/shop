@@ -43,9 +43,14 @@ def laptops():
     return render_template('laptops.html', title='Ноутбуки')
 
 
-@app.route('/register')
-def register():
-    return render_template('register.html', title="Registration")
+@app.route('/register_user')
+def register_user():
+    return render_template('register_user.html', title="Registration")
+
+
+@app.route('/register_admin')
+def register_admin():
+    return render_template('register_admin.html', title='Registration')
 
 
 if __name__ == '__main__':
