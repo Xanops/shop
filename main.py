@@ -43,5 +43,10 @@ def laptops():
     return render_template('laptops.html', title='Ноутбуки')
 
 
+@app.route('/register')
+def register():
+    return render_template('register.html', title="Registration")
+
+
 if __name__ == '__main__':
     app.run(port=8080, host='127.0.0.1')
