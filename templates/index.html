@@ -5,6 +5,7 @@
 	<title>{{title}}</title>
 	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 	<link rel='stylesheet' href="../static/css/style.css">
+	<link rel="stylesheet" href="../static/css/catalog_style.css">
 	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
 		  integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
 	<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta3/dist/js/bootstrap.bundle.min.js"
@@ -13,31 +14,18 @@
 </head>
 <body>
 
-<header>
+<header class="top_header">
 	<div class='flexbox' id='top'>
-		<nav class="navbar navbar-expand-lg navbar-light bg-light">
-			<div class="container-fluid">
-				<button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-					<span class="navbar-toggler-icon"></span>
-				</button>
-				<div class="collapse navbar-collapse" id="navbarSupportedContent">
-					<ul class="navbar-nav me-auto mb-2 mb-lg-0">
-						<li class="nav-item dropdown">
-							<a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-								Catalog
-							</a>
-							<ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-								<li><a class="dropdown-item" href="/laptops">Laptops</a></li>
-								<li><a class="dropdown-item" href="/phones">Smartphones</a></li>
-								<li>
-									<hr class="dropdown-divider">
-								</li>
-								<li><a class="dropdown-item" href="#">Fuck you, pls go away from here</a></li>
-							</ul>
-						</li>
-					</ul>
-				</div>
-			</div>
+		<nav class="top_menu">
+		    <ul class="top_table">
+		      	<li><a href="" class="submenu-link">О нас</a>
+		      	  	<ul class="submenu">
+		      	  	  	<li><a href="">Производство</a></li>
+		      	  	  	<li><a href="">Магазин</a></li>
+		      	  	  	<li><a href="">Сервис</a></li>
+		      	  	</ul>
+		      	</li>
+		    </ul>
 		</nav>
 		<div><h1>You pay we take care of the rest!</h1></div>
 		<div class='center_text' id='mission_logo'><span>Shop All In One</span></div>
@@ -48,7 +36,9 @@
 			</div>
 		</div>
 	</div>
+</header>
 
+<header>
 	<div id='promo'>
 		<h3>Only today: Free delivery!</h3>
 	</div>
