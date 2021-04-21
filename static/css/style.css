@@ -6,8 +6,10 @@ height: 100%
 	display: flex;
 }
 
-header{
+.top_header {
 	width: 100vw;
+  background: white;
+  text-align: center;
 }
 
 #top{
