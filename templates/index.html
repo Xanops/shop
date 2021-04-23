@@ -13,41 +13,42 @@
 	{% block css_link %}{% endblock %}
 </head>
 <body>
-
-<header class="top_header">
-	<div class='flexbox' id='top'>
-		<nav class="top_menu">
-			<a href="" class="submenu-link">О нас</a>
-				<ul class="submenu">
-					<li><a href="">Производство</a></li>
-					<li><a href="">Магазин</a></li>
-					<li><a href="">Сервис</a></li>
+	<header class="top_header">
+		<div class='flexbox' id='top'>
+			<nav id="catalog-nav">
+				<ul class="topmenu">
+					<li><a href="" id="submenu-link">О нас</a>
+						<ul class="submenu">
+							<li><a href="">Производство</a></li>
+							<li><a href="">Магазин</a></li>
+							<li><a href="">Сервис</a></li>
+						</ul>
+					</li>
 				</ul>
-		</nav>
-		<div><h1>You pay we take care of the rest!</h1></div>
-		<div class='center_text' id='mission_logo'><span>Shop All In One</span></div>
-		<div class="center_text">
-			<div>
-				<a class="btn btn-primary " href="/register">Sign up</a>
-				<a class="btn btn-success" href="/login">Sign in</a>
+			</nav>
+	<!--			<div><h1>You pay we take care of the rest!</h1></div>-->
+			<div class='center_text' id='mission_logo'>Shop All In One</div>
+			<div class="center_text">
+				<div>
+					<a class="btn btn-primary " href="/register">Sign up</a>
+					<a class="btn btn-success" href="/login">Sign in</a>
+				</div>
 			</div>
 		</div>
-	</div>
-</header>
 
-<header>
+	</header>
+
 	<div id='promo'>
 		<h3>Only today: Free delivery!</h3>
 	</div>
-</header>
 
-<main role="main" class="container">
-	{% block content %}{% endblock %}
-</main>
 
-<footer>
-	<div id='contact_us' class='flexbox'><span>Contact us:</span> <span>wedonotcare@fuckyou.com</span></div>
-</footer>
+	<main role="main" class="container">
+		{% block content %}{% endblock %}
+	</main>
 
+	<footer>
+		<div id='contact_us' class="flexbox"><span>Contact us:</span><span id="contact_us_address">Russia, Moscow, Klenoviy Bulvar 21, second floor 208 cabinet</span></div>
+	</footer>
 </body>
 </html>

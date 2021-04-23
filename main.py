@@ -53,5 +53,10 @@ def register_admin():
     return render_template('register_admin.html', title='Registration')
 
 
+@app.route('/catalog')
+def catalog():
+    return render_template('catalog.html', title='Catalog')
+
+
 if __name__ == '__main__':
     app.run(port=8080, host='127.0.0.1')
