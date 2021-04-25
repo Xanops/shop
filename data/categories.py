@@ -8,3 +8,6 @@ class Category(SqlAlchemyBase, SerializerMixin):
     __tablename__ = 'categories'
     id = sqlalchemy.Column(sqlalchemy.Integer, unique=True, primary_key=True, autoincrement=True)
     title = sqlalchemy.Column(sqlalchemy.String)
+
+    def __repr__(self):
+        return self.title
