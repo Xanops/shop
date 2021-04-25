@@ -1,23 +1,23 @@
-* {
+. {
     box-sizing: border-box;
 }
 
 .topmenu a {
-  display: block;
-  text-decoration: none;
-  outline: none;
-  transition: .3s ease-in-out;
+	display: block;
+	text-decoration: none;
+	outline: none;
+	transition: .3s ease-in-out;
 }
 
 #catalog-nav {
-  display: table;
-  margin: 0;
+	display: table;
+	margin: 0;
 }
 
 #catalog-nav ul {
-  list-style: none;
-  margin: 0;
-  padding: 0;
+	list-style: none;
+	margin: 0;
+	padding: 0;
 }
 
 .topmenu:after {
@@ -36,12 +36,14 @@
   text-transform: uppercase;
   font-size: 14px;
   font-weight: bold;
-  color: #404040;
+  color: #D5B45B;
   padding: 15px 30px;
+  text-decoration: none;
+  margin-top: 6%;
 }
 
 .topmenu li a:hover {
-    color: #D5B45B;
+    color: #ffffff;
 }
 
 #submenu-link:after {
@@ -52,12 +54,13 @@
 }
 
 .submenu {
-  background: #273037;
+  background: #ccc539;
   position: absolute;
-  left: 10px;
+  border-radius: 5px;
+  left: 1vw;
   top: 100%;
   z-index: 5;
-  width: 180px;
+  width: 8vw;
   opacity: 0;
   transform: scaleY(0);
   transform-origin :0 0;
@@ -68,8 +71,17 @@
   color: white;
   text-align: left;
   padding: 12px 15px;
-  font-size: 13px;
+  font-size: 15px;
+  font-weight: 600;
   border-bottom: 1px solid rgba(255,255,255,.1);
+}
+
+.submenu > li > a {
+	text-decoration: none;
+}
+
+.submenu > li > a:hover {
+	color: #177528;
 }
 
 .submenu li:last-child a {

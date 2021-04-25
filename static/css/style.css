@@ -1,51 +1,49 @@
-html,body{
-height: 100%
+.flexbox {
+	display: flex;
 }
 
-.flexbox{
-	display: flex;
+#logo_img {
+	border: none;
+	height: 7vh;
+	width: 17vw;
+	border-radius: 20px;
+}
+
+#logo_a {
+	text-align: center;
+	height: 7vh;
+	width: 17vw;
 }
 
 .top_header {
 	width: 100vw;
-  background: white;
-  text-align: center;
 }
 
-#top{
-	background-color: #f8f9fa;
+#top_div{
+	background-color: #5a43bf;
 	justify-content: space-between;
 	align-content: center;
 	flex-direction: row;
 }
 
-#mission_logo{
+#main_page_logo{
 	font-weight: bold;
 	margin-right: 5%;
 }
 
-#promo{
+#promo_main_page{
 	font-weight: bold;
 	color: #e83535;
 	margin-left: 10px;
 }
 
-.center_text{
+#register_buttons{
 	display: flex;
 	justify-content: center;
 	align-content: center;
-	flex-direction: column;
 }
 
-.center_text > span{
-	display: block;
-}
-
-#greetings{
-    font-weight: bold;
-}
-
-footer {
+.footer_contact_us {
     position: fixed;
     bottom: 0;
     width: 100%;
@@ -55,21 +53,6 @@ footer {
 	width: 50%;
 	font-weight: bold;
 	justify-content: space-between;
-}
-
-#podborka_table{
-	width: 80%;
-	cellpadding: 1px;
-}
-
-#podborka_caption{
-	caption-side: top;
-	text-align: center;
-	font-size: 40px;
-}
-
-.podborka_img{
-	width: 80%;
 }
 
 

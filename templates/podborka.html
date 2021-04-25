@@ -1,14 +1,23 @@
-{% extends "index.html" %}
+{% extends "base.html" %}
 
 {% block content %}
-    <table id="podborka_table" align="center">
-        <caption id="podborka_caption">Products of the day</caption>
-        {% for i in range(3) %}
-            <tr>
-                <td class="podborka_cells"><img src="../static/img/ikonka.jpg" class="podborka_img"></td>
-                <td class="podborka_cells"><img src="../static/img/ikonka.jpg" class="podborka_img"></td>
-                <td class="podborka_cells"><img src="../static/img/ikonka.jpg" class="podborka_img"></td>
-            </tr>
+    <h1 id="h1_header_sale_products_on_main_page">Products of the day</h1>
+        {% for i in range(2) %}
+            <div class="products_cards_line_div">
+            {% for j in range(5) %}
+                <div class="product-wrap-div">
+                    <div class="product-item">
+                        <img src="../static/img/ikonka.jpg">
+                        <div class="product-buttons">
+                            <a href="" id="add_to_cart_button">В корзину</a>
+                        </div>
+                    </div>
+                    <div class="product-title">
+                        <a href="">Маленькое черное платье</a>
+                        <span class="product-price">₽ 1999</span><span></span>
+                    </div>
+                </div>
+            {% endfor %}
+            </div>
         {% endfor %}
-    </table>
 {% endblock %}
