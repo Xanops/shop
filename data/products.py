@@ -4,10 +4,10 @@ from .categories import Category
 from sqlalchemy import orm
 from sqlalchemy_serializer import SerializerMixin
 
-categories_to_products = sqlalchemy.Table('orders_to_products', SqlAlchemyBase.metadata,
-                                          sqlalchemy.Column('product_id', sqlalchemy.Integer,
+categories_to_products = sqlalchemy.Table('categories_to_products', SqlAlchemyBase.metadata,
+                                          sqlalchemy.Column('product', sqlalchemy.Integer,
                                                             sqlalchemy.ForeignKey('products.id')),
-                                          sqlalchemy.Column('category_id', sqlalchemy.Integer,
+                                          sqlalchemy.Column('category', sqlalchemy.Integer,
                                                             sqlalchemy.ForeignKey('categories.id')))
 
 

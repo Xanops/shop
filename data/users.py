@@ -11,7 +11,7 @@ class User(SqlAlchemyBase, UserMixin, SerializerMixin):
     id = sqlalchemy.Column(sqlalchemy.Integer, unique=True, primary_key=True, autoincrement=True)
     username = sqlalchemy.Column(sqlalchemy.String, nullable=True)
     email = sqlalchemy.Column(sqlalchemy.String, nullable=False, unique=True)
-    clearance_level = sqlalchemy.Column(sqlalchemy.Integer, nullable=False)
+    is_seller = sqlalchemy.Column(sqlalchemy.Boolean, nullable=False)
     hashed_password = sqlalchemy.Column(sqlalchemy.String, nullable=False)
 
     def set_password(self, password):

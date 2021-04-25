@@ -1,39 +1,57 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>{{title}}</title>
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <link rel='stylesheet' href="../static/css/style.css">
-	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
-    {% block css_link %}{% endblock %}
-</head>
-<body>
+{% extends "base.html" %}
 
-<header>
-	<div class='flexbox' id='top'>
-		<div><h1>You pay we take care of the rest!</h1></div>
-		<div class="center_text">
-			<div>
-					<a class="btn btn-primary " href="/register">Register</a>
-        			<a class="btn btn-success" href="/login">Login</a>
-			</div>
-		</div>
-		<div class='center_text' id='mission_logo'><span>Shop All In One</span></div>
+{% block css_link %}
+    <link rel='stylesheet' href="{{url_for('static', filename='css/index.css')}}">
+{% endblock %}
+
+
+{% block content %}
+    <div>
+		<h2 id="title">Products</h2>
 	</div>
 
-	<div id='motivation'>
-		<h3>Free delivery!</h3>
+	<div id='log_container'>
+        {% if current_user.is_authenticated and current_user.is_seller %}
+			<div><a class='btn btn-secondary' href="/add_product">Add Product</a></div>
+		{% endif %}
+        {% for product in data %}
+		    <div>
+			    <div><h3>Product #{{loop.index}}</h3></div>
+			    <table>
+				    <tr class='header_row'>
+					    <th class='column_10'>Title</th>
+					    <th>Description</th>
+					    <th class='column_15'>Price</th>
+					    <th>Categories</th>
+				    </tr>
+				    <tr>
+					    <td>{{product.title}}</td>
+					    <td>{{product.description}}</td>
+					    <td>{{product.price}}</td>
+					    <td>
+							{% for category in product.categories %}
+								{{category}} {% if not loop.last %}, {% endif %}
+							{% endfor %}
+						</td>
+				    </tr>
+			    </table>
+                {% if current_user.is_authenticated %}
+                    <div>
+                        <a href="/add_to_cart/{{ product.id }}" class="btn btn-success">
+                            Добавить в корзину
+                        </a>
+                        {% if current_user.is_seller %}
+        				    <a href="/change_product/{{ product.id }}" class="btn btn-warning">
+            				    Изменить
+        				    </a>
+        				    <a href="/delete_product/{{ product.id }}" class="btn btn-danger">
+            				    Удалить
+        				    </a>
+                        {% endif %}
+                    </div>
+                {% endif %}
+		    </div>
+        {% endfor %}
 	</div>
-</header>
 
-<main role="main" class="container">
-    {% block content %}{% endblock %}
-</main>
-
-<footer>
-	<div id = 'contact_us' class='flexbox'> <span>Contact us:</span> <span>wedonotcare@fuckyou.com</span><div>
-</footer>
-
-</body>
-</html>
+{% endblock %}
