@@ -7,16 +7,15 @@
 
 {% block content %}
     <div>
-		<h2 id="title">Products</h2>
+		<h2 id="product_title">{{ Category }}</h2>
 	</div>
 
 	<div id='log_container'>
         {% if current_user.is_authenticated and current_user.is_seller %}
-			<div><a class='btn btn-secondary' href="/add_product">Add Product</a></div>
+			<div id="button_add_product"><a class='btn btn-secondary' href="/add_product">Add Product</a></div>
 		{% endif %}
         {% for product in data %}
 		    <div>
-			    <div><h3>Product #{{loop.index}}</h3></div>
 			    <table>
 				    <tr class='header_row'>
 					    <th class='column_10'>Title</th>

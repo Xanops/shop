@@ -25,5 +25,6 @@ class ProductForm(FlaskForm):
     title = StringField('Title', validators=[DataRequired()])
     description = StringField('Description', validators=[DataRequired()])
     price = IntegerField('Price', validators=[DataRequired()])
+    img_adress = StringField('Way to img', default='../static/img/ikonka.jpg')
     categories = StringField('Categories', validators=[DataRequired()])
     submit = SubmitField('Submit')

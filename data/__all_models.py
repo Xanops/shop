@@ -6,3 +6,5 @@ from . import categories
 from . import products
 # noinspection PyUnresolvedReferences
 from . import orders
+# noinspection PyUnresolvedReferences
+from . import categories_to_products

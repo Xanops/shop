@@ -12,10 +12,11 @@ categories_to_products = sqlalchemy.Table('categories_to_products', SqlAlchemyBa
 
 
 class Product(SqlAlchemyBase, SerializerMixin):
-    serialize_only = ('id', 'title', 'description', 'price', 'categories')
+    serialize_only = ('id', 'title', 'description', 'price', 'categories', 'img_address')
     __tablename__ = 'products'
     id = sqlalchemy.Column(sqlalchemy.Integer, unique=True, primary_key=True, autoincrement=True)
     title = sqlalchemy.Column(sqlalchemy.String)
     description = sqlalchemy.Column(sqlalchemy.String)
     price = sqlalchemy.Column(sqlalchemy.Integer, nullable=False)
+    img_address = sqlalchemy.Column(sqlalchemy.Integer)
     categories = orm.relationship(Category, secondary='categories_to_products', backref='categories')

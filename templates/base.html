@@ -23,21 +23,22 @@
 				<ul class="topmenu">
 					<li><a href="/catalog" id="submenu-link">Каталог</a>
 						<ul class="submenu">
-							<li><a href="/catalog/laptops">Ноутбуки</a></li>
-							<li><a href="/catalog/smartphones">Смартфоны</a></li>
+							<li><a href="/category/laptops">Ноутбуки</a></li>
+							<li><a href="/category/smartphones">Смартфоны</a></li>
 						</ul>
 					</li>
 				</ul>
 			</nav>
-	<!--			<div><h1>You pay we take care of the rest!</h1></div>-->
 			<a href="/" id="logo_a"><img src="../static/img/logo.png" id="logo_img" alt="Shop all in one"></a>
 			<div id="register_buttons">
 				<div>
 					{% if current_user.is_authenticated %}
-    					<a class="navbar-brand" href="/logout">{{ current_user }}</a>
+						<a id="shopping_cart" href="/shopping_cart"></a>
+    					<a class="navbar-brand" href="/logout" id="current_user">{{ current_user }}</a>
 					{% else %}
-						<a class="btn btn-primary" id="register_button" href="/register">Sign up</a>
+						<a class="btn btn-primary" id="register_button" href="/register_user">Sign up</a>
 						<a class="btn btn-success" id="login_button" href="/login">Sign in</a>
+					{% endif %}
 				</div>
 			</div>
 		</div>
@@ -53,5 +54,7 @@
 	</main>
 
 	<footer id="footer_contuct_us">
-		<div id='contact_us' class="flexbox"><span>Contact us:</span><span id="contact_us_address">Russia, Moscow, Klenoviy Bulvar 21, second floor 208 cabinet</span></div>
+		<div id="h1_naive_promises"><h1>You pay, we take care of the rest!</h1></div>
+		<div id='contact_us' class="flexbox"><pre><span>Contact us:   </span><span id="contact_us_address">Russia, Moscow, Klenoviy Bulvar 21, second floor 208 cabinet, Tuesdays and Fridays since 5 to 7 pm; NOT LONGER!!!</span></pre></div>
 	</footer>
+</body>

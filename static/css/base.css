@@ -1,5 +1,6 @@
 .flexbox {
 	display: flex;
+
 }
 
 #logo_img {
@@ -16,7 +17,7 @@
 }
 
 .top_header {
-	width: 100vw;
+	width: 100%;
 }
 
 #top_div{
@@ -43,16 +44,22 @@
 	align-content: center;
 }
 
+#shopping_cart:before {
+	content: "\f07a";
+   	font-family: FontAwesome;
+   	margin-right: 10px;
+}
+
+.container {
+	margin-top: 2%;
+}
+
 .footer_contact_us {
+	margin-top: 3vh;
     position: fixed;
     bottom: 0;
-    width: 100%;
 }
 
 #contact_us{
-	width: 50%;
 	font-weight: bold;
-	justify-content: space-between;
 }
-
-

@@ -2,21 +2,39 @@
 
 {% block content %}
     <h1 id="h1_header_sale_products_on_main_page">Products of the day</h1>
+    {% if current_user.is_authenticated and current_user.is_seller %}
+			<div id="button_add_product"><a class='btn btn-secondary' href="/add_product">Add Product</a></div>
+    {% endif %}
         {% for i in range(2) %}
             <div class="products_cards_line_div">
             {% for j in range(5) %}
                 <div class="product-wrap-div">
                     <div class="product-item">
-                        <img src="../static/img/ikonka.jpg">
-                        <div class="product-buttons">
-                            <a href="" id="add_to_cart_button">В корзину</a>
-                        </div>
+                        <img src={{data[i+j].img_address}}>
+                        {% if current_user.is_authenticated %}
+                            <div class="product-buttons">
+                                <a href="/add_to_cart/{{ data[i+j].id }}" id="add_to_cart_button">В корзину</a>
+                            </div>
+                        {% endif %}
                     </div>
                     <div class="product-title">
-                        <a href="">Маленькое черное платье</a>
-                        <span class="product-price">₽ 1999</span><span></span>
+                        <a href="">{{data[i + j].title}}</a>
+                        <span class="product-price">₽ {{data[i + j].price}}</span><span></span>
                     </div>
+                    {% if current_user.is_authenticated %}
+                        <div>
+                            {% if current_user.is_seller %}
+        		    		    <a href="/change_product/{{ data[i+j].id }}" class="btn btn-warning">
+            	    			    Изменить
+        		    		    </a>
+        		    		    <a href="/delete_product/{{ data[i+j].id }}" class="btn btn-danger">
+            	    			    Удалить
+        		    		    </a>
+                            {% endif %}
+                        </div>
+                    {% endif %}
                 </div>
+
             {% endfor %}
             </div>
         {% endfor %}

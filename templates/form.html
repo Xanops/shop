@@ -17,7 +17,7 @@
             {{field.label()}}<br>
             {{field(class='form-control')}}<br>
             {% for error in field.errors %}
-                <span class="alert alert-danger" role="alert">
+                <span id="error_span" class="alert alert-danger" role="alert">
                     {{ error }}
                 </span>
             {% endfor %}

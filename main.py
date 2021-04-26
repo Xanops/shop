@@ -1,10 +1,13 @@
+import random
 import flask_login
 from data import db_session
 from data.products import Product
 from data.users import User
 from data.categories import Category
+from data.categories_to_products import Categories_to_products
 from flask import Flask, render_template, redirect, abort
 from forms import *
+import os
 
 app = Flask(__name__, template_folder='templates')
 login_manager = flask_login.LoginManager()
@@ -12,20 +15,33 @@ login_manager = flask_login.LoginManager()
 
 @app.route('/')
 def index():
-    session = db_session.create_session()
-    data = session.query(Product).all()
+    data = random.choices(session.query(Product).all(), k=10)
     return render_template('podborka.html', title='Всё что нужно - любые товары самых разных категорий.',
-        current_user=flask_login.current_user, data=data)
+                           current_user=flask_login.current_user, data=data)
 
 
 @app.route('/category/<string:category>')
 def product_category(category):
-    return render_template('phones.html', title='')
+    files = None
+    cat = None
+    if category == 'smartphones':
+        id = session.query(Category).filter(Category.title == 'smartphones')
+        ids = session.query(Categories_to_products).filter(Categories_to_products.category == id)
+        files = session.query(Product).filter(Product.id in ids)
+        cat = 'Smartphones'
+    elif category == 'laptops':
+        id = session.query(Category).filter(Category.title == 'laptops')
+        ids = session.query(Categories_to_products).filter(Categories_to_products.category == id)
+        files = session.query(Product).filter(Product.id in ids)
+        cat = 'Laptops'
+    return render_template('index.html', title=category, data=files, Category=cat)
 
 
 @app.route('/catalog')
 def catalog():
-    return render_template('catalog.html', title='Catalog')
+    session = db_session.create_session()
+    data = session.query(Product).all()
+    return render_template('index.html', title='Catalog', current_user=flask_login.current_user, data=data)
 
 
 @app.route('/shopping_cart')
@@ -70,6 +86,7 @@ def login():
 def delete_product(product_id):
     session = db_session.create_session()
     product = session.query(Product).get(product_id)
+    os.replace(product.img_address[3:], f'static/img/to_remove/{product.img_address[product.img_address.rfind("""/"""):]}')
     if flask_login.current_user.is_seller and product:
         session.delete(product)
         session.commit()
@@ -156,6 +173,7 @@ def logout():
 if __name__ == '__main__':
     app.config['SECRET_KEY'] = 'secret_key'
     app.config['JSON_AS_ASCII'] = False
-    db_session.global_init("db/mission.db")
+    db_session.global_init("db/main.db")
+    session = db_session.create_session()
     login_manager.init_app(app)
     app.run(port=8080, host='127.0.0.1')
